@@ -1,15 +1,10 @@
 <script>
-	import Crono from '$lib/Crono.svelte';
-	import Operacion from '$lib/Operacion.svelte';
 </script>
 
 <header>
-	<Crono />
-	<!--Score client:load /-->
 </header>
 <main>
-	<Operacion max={9} />
-	<!--ButtonGroup /-->
+	<a href="/operacion?max=9">Comezar</a>
 </main>
 
 <style>
@@ -21,5 +16,11 @@
 		height: 100svh;
 		gap: 2rem;
 		padding: 1rem;
+	}
+	a {
+		background-color: white;
+    border: 1px solid white;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.9375rem;
 	}
 </style>
