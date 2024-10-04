@@ -4,7 +4,7 @@
 	import Operacion from '$lib/Operacion.svelte';
 	import Puntuacion from '$lib/Puntuacion.svelte';
 
-	import { total, erros } from '$lib/stores.js';
+	import { total, erros, tempo } from '$lib/stores.js';
 
     import { page } from '$app/stores';
     import { goto } from '$app/navigation';
@@ -17,6 +17,8 @@
 			[array[i], array[j]] = [array[j], array[i]];
 		}
 	}
+
+	let fin = 0;
 
 	let operacions = [0, 1, 2, 3];
 	shuffleArray(operacions);
@@ -32,13 +34,14 @@
 		if (indice < operacions.length) {
 			opActual = operacions[indice];
 		} else {
-            goto('/?tempo=0&erros=' + $erros);
+			fin = 1;
+            goto('/?tempo=' + $tempo + '&erros=' + $erros);
         }
 	}
 </script>
 
 <header>
-	<Crono />
+	<Crono {fin} />
 	<Puntuacion />
 </header>
 <main>

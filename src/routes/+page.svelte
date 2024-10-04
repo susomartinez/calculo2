@@ -14,7 +14,7 @@
 	{#if !primeira}
 		<Resultado {tempo} {erros} />
 	{/if}
-	<a href="/operacion?max=9">{primeira ? 'Comezar' : 'Reintentar'}</a>
+	<a href="/operacion?max=9">{primeira ? 'Comezar' : 'Outra vez'}</a>
 </main>
 
 <style>
