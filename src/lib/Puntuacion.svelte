@@ -6,7 +6,7 @@
   <h1>Correctas: {$total-$erros}/{$total}</h1>
     
   <style>
-      h1, button {
+      h1 {
           color: white;
       }
   </style>

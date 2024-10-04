@@ -2,11 +2,16 @@
     export let erros;
     export let tempo;
 
-    let fallos = parseInt(erros);
+    const PENALIZACION = 5*100; // Penalización por fallo en centésimas de segundo
 
-    const minutos = Math.floor(tempo/6000);
-    const segundos = Math.floor(tempo/100)%60 > 9 ? Math.floor(tempo/100)%60 : '0'+Math.floor(tempo/100)%60;
-    const centesimas = tempo % 100 > 9 ? tempo % 100 : '0' + tempo % 100;
+    let fallos = parseInt(erros);
+    let tempoNum = parseInt(tempo);
+
+    tempoNum += fallos * PENALIZACION;
+
+    const minutos = Math.floor(tempoNum/6000);
+    const segundos = Math.floor(tempoNum/100)%60 > 9 ? Math.floor(tempoNum/100)%60 : '0'+Math.floor(tempoNum/100)%60;
+    const centesimas = tempoNum % 100 > 9 ? tempoNum % 100 : '0' + tempoNum % 100;
 
     const tempoFormateado = `${minutos}:${segundos}:${centesimas}`;
 </script>
