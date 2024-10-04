@@ -22,17 +22,17 @@
 	shuffleArray(operacions);
 	let indice = 0;
 	let opActual = operacions[0];
+	erros.set(0);
+	total.set(0);
 
 	function updateScore(event) {
 		total.update((n) => ++n);
 		erros.update((n) => n + parseInt(event.detail.change));
         indice++;
 		if (indice < operacions.length) {
-            console.log("Indice: ", indice, " - Operacions: ", operacions.length);
 			opActual = operacions[indice];
 		} else {
-            console.log("Fin!");
-            goto('/?tempo=0&erros=' + erros);
+            goto('/?tempo=0&erros=' + $erros);
         }
 	}
 </script>
