@@ -1,6 +1,5 @@
 <script>
-	import Resultado from '$lib/Resultado.svelte';
-	import { page } from '$app/stores';
+	import Resultado from './Resultado.svelte';
 	import { tempo, erros } from '$lib/stores.js';
 
 	let primeira = ($tempo == 0);

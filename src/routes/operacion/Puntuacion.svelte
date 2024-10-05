@@ -1,5 +1,5 @@
 <script>
-      import { total, erros } from './stores.js';
+      import { total, erros } from '$lib/stores.js';
  
   </script>
   

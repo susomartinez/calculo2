@@ -1,12 +1,11 @@
 <script>
-	import Botoneira from '$lib/Botoneira.svelte';
-	import Crono from '$lib/Crono.svelte';
-	import Operacion from '$lib/Operacion.svelte';
-	import Puntuacion from '$lib/Puntuacion.svelte';
+	import Botoneira from './Botoneira.svelte';
+	import Crono from './Crono.svelte';
+	import Operacion from './Operacion.svelte';
+	import Puntuacion from './Puntuacion.svelte';
 
 	import { total, erros, tempo } from '$lib/stores.js';
 
-    import { page } from '$app/stores';
     import { goto } from '$app/navigation';
 
     const max = 9;
