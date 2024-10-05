@@ -1,20 +1,19 @@
 <script>
 	import Resultado from '$lib/Resultado.svelte';
 	import { page } from '$app/stores';
+	import { tempo, erros } from '$lib/stores.js';
 
-	let tempo = $page.url.searchParams.get('tempo');
-	let erros = $page.url.searchParams.get('erros');
-
-	let primeira = !(tempo || erros);
+	let primeira = ($tempo == 0);
 </script>
 
 <header>
 </header>
 <main>
 	{#if !primeira}
-		<Resultado {tempo} {erros} />
+		<Resultado tempo={$tempo} erros={$erros} />
 	{/if}
-	<a href="/operacion?max=9">{primeira ? 'Comezar' : 'Outra vez'}</a>
+	<p>Tempo: {$tempo} - Erros: {$erros}</p>
+	<a href="/operacion">{primeira ? 'Comezar' : 'Outra vez'}</a>
 </main>
 
 <style>

@@ -9,7 +9,7 @@
     import { page } from '$app/stores';
     import { goto } from '$app/navigation';
 
-    let max = $page.url.searchParams.get('max');
+    const max = 9;
 
 	function shuffleArray(array) {
 		for (let i = array.length - 1; i >= 0; i--) {
@@ -26,6 +26,7 @@
 	let opActual = operacions[0];
 	erros.set(0);
 	total.set(0);
+	tempo.set(new Date());
 
 	function updateScore(event) {
 		total.update((n) => ++n);
@@ -34,8 +35,9 @@
 		if (indice < operacions.length) {
 			opActual = operacions[indice];
 		} else {
+			tempo.set(new Date() - $tempo);
 			fin = 1;
-            goto('/?tempo=' + $tempo + '&erros=' + $erros);
+            goto('/');
         }
 	}
 </script>
