@@ -7,6 +7,7 @@
 	import { total, erros, tempo } from '$lib/stores.js';
 
     import { goto } from '$app/navigation';
+	import { base } from '$app/paths'
 
     const max = 9;
 
@@ -36,7 +37,7 @@
 		} else {
 			tempo.set(new Date() - $tempo);
 			fin = 1;
-            goto('/');
+            goto(base + '/');
         }
 	}
 </script>

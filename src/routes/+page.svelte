@@ -1,6 +1,7 @@
 <script>
 	import Resultado from './Resultado.svelte';
 	import { tempo, erros } from '$lib/stores.js';
+	import { base } from '$app/paths'
 
 	let primeira = ($tempo == 0);
 </script>
@@ -11,8 +12,7 @@
 	{#if !primeira}
 		<Resultado tempo={$tempo} erros={$erros} />
 	{/if}
-	<p>Tempo: {$tempo} - Erros: {$erros}</p>
-	<a href="/operacion">{primeira ? 'Comezar' : 'Outra vez'}</a>
+	<a href="{base}/operacion">{primeira ? 'Comezar' : 'Outra vez'}</a>
 </main>
 
 <style>
