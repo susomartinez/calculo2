@@ -20,7 +20,7 @@
 
 	let fin = 0;
 
-	let operacions = [0, 1, 2, 3];
+	let operacions = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3];
 	shuffleArray(operacions);
 	let indice = 0;
 	let opActual = operacions[0];
