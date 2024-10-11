@@ -40,6 +40,23 @@
             goto(base + '/');
         }
 	}
+
+	function onKeyDown(e) {
+		const mockEvent = {
+			detail: {
+				change: 0
+			}
+		}
+		switch(e.keyCode) {
+			 case 37: // Frecha esquerda
+				 mockEvent.detail.change = 1;
+				 updateScore(mockEvent);
+				 break;
+			 case 39: // Frecha derecha
+			 	updateScore(mockEvent);
+				 break;
+		 }
+	}
 </script>
 
 <header>
@@ -50,6 +67,8 @@
 	<Operacion {max} operacion={opActual} />
 	<Botoneira on:updateScore={updateScore} />
 </main>
+
+<svelte:window on:keydown|preventDefault={onKeyDown} />
 
 <style>
 	main {
