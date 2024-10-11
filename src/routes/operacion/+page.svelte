@@ -21,9 +21,9 @@
 	let fin = 0;
 
 	let operacions = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3];
+	//let operacions = [0, 1, 2, 3];
 	shuffleArray(operacions);
 	let indice = 0;
-	let opActual = operacions[0];
 	erros.set(0);
 	total.set(0);
 	tempo.set(new Date());
@@ -31,14 +31,13 @@
 	function updateScore(event) {
 		total.update((n) => ++n);
 		erros.update((n) => n + parseInt(event.detail.change));
-        indice++;
-		if (indice < operacions.length) {
-			opActual = operacions[indice];
-		} else {
+		if (indice >= operacions.length-1) {
 			tempo.set(new Date() - $tempo);
 			fin = 1;
             goto(base + '/');
-        }
+        } else {
+			indice++;
+		}
 	}
 
 	function onKeyDown(e) {
@@ -64,7 +63,7 @@
 	<Puntuacion />
 </header>
 <main>
-	<Operacion {max} operacion={opActual} />
+	<Operacion {max} operacions={operacions} {indice} />
 	<Botoneira on:updateScore={updateScore} />
 </main>
 

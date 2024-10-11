@@ -1,6 +1,7 @@
 <script>
 	export let max;
-	export let operacion;
+	export let operacions = [0];
+	export let indice = 0;
 
 	const OPERACIONS = [
 		{
@@ -27,14 +28,14 @@
 
 	let num1, num2;
 
-	$: num1 = Math.floor(Math.random() * max + 1) + operacion - operacion;
-	$: num2 = Math.floor(Math.random() * max + 1) + operacion - operacion;
-	$: if (operacion === 1 && num1 < num2) {
+	$: num1 = Math.floor(Math.random() * max + 1) + indice - indice;
+	$: num2 = Math.floor(Math.random() * max + 1) + indice - indice;
+	$: if (operacions[indice] === 1 && num1 < num2) {
 		const temp = num1;
 		num1 = num2;
 		num2 = temp;
 	}
-	$: if (operacion === 3) {
+	$: if (operacions[indice] === 3) {
 		num1 = num1 * num2;
 	}
 </script>
@@ -45,14 +46,14 @@
 			{num1}
 		</span>
 		<span class="operador">
-			{OPERACIONS[operacion].simbolo}
+			{OPERACIONS[operacions[indice]].simbolo}
 		</span>
 		<span class="numero">
 			{num2}
 		</span>
 	</div>
 	<span class="resultado">
-		{eval(num1 + OPERACIONS[operacion].op + num2)}
+		{eval(num1 + OPERACIONS[operacions[indice]].op + num2)}
 	</span>
 </section>
 

@@ -7,9 +7,6 @@
     let fallos = parseInt(erros);
     let tempoNum = parseInt(tempo);
 
-    console.log(erros, tempo, typeof erros, typeof tempo);
-    console.log(tempoNum, fallos);
-
     tempoNum += fallos * PENALIZACION;
     tempoNum = Math.round(tempoNum/10); // Pásase de milésimas a centésimas
 
