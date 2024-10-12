@@ -2,6 +2,7 @@
 	export let max;
 	export let operacions = [0];
 	export let indice = 0;
+	export let solucion = true;
 
 	const OPERACIONS = [
 		{
@@ -40,7 +41,7 @@
 	}
 </script>
 
-<section class="section">
+<article class="section">
 	<div class="operacion">
 		<span class="numero">
 			{num1}
@@ -53,9 +54,11 @@
 		</span>
 	</div>
 	<span class="resultado">
-		{eval(num1 + OPERACIONS[operacions[indice]].op + num2)}
+		{#if solucion}
+			{eval(num1 + OPERACIONS[operacions[indice]].op + num2)}
+		{/if}
 	</span>
-</section>
+</article>
 
 <style>
 	.operacion {
@@ -64,7 +67,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 0.8rem;
-		font-size: 9rem;
+		font-size: 7rem;
 	}
 	.numero {
 		color: white;
@@ -75,5 +78,9 @@
 	.resultado {
 		color: gray;
 		font-size: 2rem;
+		height: 3rem;
+		display: block;
+		text-align: center;
+		margin-top: 1rem;
 	}
 </style>

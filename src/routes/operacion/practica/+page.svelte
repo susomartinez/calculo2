@@ -1,8 +1,8 @@
 <script>
 	import Botoneira from './Botoneira.svelte';
-	import Crono from './Crono.svelte';
-	import Operacion from './Operacion.svelte';
-	import Puntuacion from './Puntuacion.svelte';
+	import Crono from '../Crono.svelte';
+	import Operacion from '../Operacion.svelte';
+	import Puntuacion from '../Puntuacion.svelte';
 
 	import { total, erros, tempo } from '$lib/stores.js';
 
@@ -19,6 +19,7 @@
 	}
 
 	let fin = 0;
+	let solucion = false;
 
 	let operacions = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3];
 	//let operacions = [0, 1, 2, 3];
@@ -40,20 +41,27 @@
 		}
 	}
 
-	function onKeyDown(e) {
-		const mockEvent = {
-			detail: {
-				change: 0
+	function touchmove(e) {
+		e.preventDefault();
+		solucion = true;
+	}
+
+	let inicioArrastre = 0;
+	let coordenadaX = 0;
+	function touchStart(e){
+		// Gardar coordenadas iniciais e momento
+		inicioArrastre = e.timeStamp;
+		coordenadaX = e.clientX;
+		solucion = true;
+	}
+	function touchEnd(e){
+		// Comprobar que non fose un erro (mínimo 100 ms de arrastre ou desprazamento de menos de 80px)
+		solucion = false;
+		if (e.timeStamp - inicioArrastre > 100) {
+			if (Math.abs(e.clientX - coordenadaX) > 80) {
+				const resultado = e.clientX - coordenadaX > 0 ? 0 : 1;
+				updateScore({detail: {change: resultado}});
 			}
-		};
-		switch (e.keyCode) {
-			case 37: // Frecha esquerda
-				mockEvent.detail.change = 1;
-				updateScore(mockEvent);
-				break;
-			case 39: // Frecha derecha
-				updateScore(mockEvent);
-				break;
 		}
 	}
 </script>
@@ -62,14 +70,12 @@
 	<Crono {fin} />
 	<Puntuacion />
 </header>
-<main>
+<main on:pointerdown={touchStart} on:pointerup={touchEnd}>
 	<section>
-		<Operacion {max} {operacions} {indice} solucion={true} />
-		<Botoneira on:updateScore={updateScore} />
+		<Operacion {max} {operacions} {indice} {solucion} />
+		<Botoneira {solucion} />
 	</section>
 </main>
-
-<svelte:window on:keydown|preventDefault={onKeyDown} />
 
 <style>
 	header {

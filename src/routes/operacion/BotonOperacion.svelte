@@ -19,6 +19,7 @@
 
 <style>
 	.button {
+		color: black;
 		background-color: white;
 		border: 1px solid white;
 		padding: 0.625rem 1.25rem;

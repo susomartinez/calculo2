@@ -13,6 +13,7 @@
 		<Resultado tempo={$tempo} erros={$erros} />
 	{/if}
 	<a href="{base}/operacion">{primeira ? 'Comezar' : 'Outra vez'}</a>
+	<a href="{base}/operacion/practica">{primeira ? 'Practicar' : 'Sigue practicando'}</a>
 </main>
 
 <style>

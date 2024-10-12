@@ -7,15 +7,103 @@
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
+		<div class="container">%sveltekit.body%</div>
 	</body>
 </html>
 
 <style>
 	html {
-		font-family: system-ui, sans-serif;
 		background: #13151a;
 		color-scheme: dark light;
 		box-sizing: border-box;
+	}
+
+	.container {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		font-family: system-ui, sans-serif;
+	}
+
+	/* Reset CSS*/
+	html,
+	body,
+	div,
+	span,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	blockquote,
+	pre,
+	a,
+	em,
+	img,
+	small,
+	strike,
+	strong,
+	sub,
+	sup,
+	b,
+	u,
+	i,
+	center,
+	ol,
+	ul,
+	li,
+	form,
+	label,
+	table,
+	caption,
+	tbody,
+	tfoot,
+	thead,
+	tr,
+	th,
+	td,
+	article,
+	canvas,
+	details,
+	embed,
+	footer,
+	header,
+	menu,
+	nav,
+	section,
+	summary,
+	audio,
+	video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	body {
+		line-height: 1;
+	}
+	ol,
+	ul {
+		list-style: none;
+	}
+	blockquote,
+	q {
+		quotes: none;
+	}
+	blockquote:before,
+	blockquote:after,
+	q:before,
+	q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
 	}
 </style>
