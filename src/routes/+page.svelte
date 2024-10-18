@@ -1,9 +1,8 @@
 <script>
 	import Resultado from './Resultado.svelte';
-	import { tempo, erros } from '$lib/stores.js';
+	import { tempoVelocidade, errosVelocidade, tempoMedioFondo, errosMedioFondo } from '$lib/stores.js';
 	import { base } from '$app/paths';
 
-	let primeira = $tempo == 0;
 </script>
 
 <header></header>
@@ -38,8 +37,8 @@
 		></a
 	>
 	<div>
-		{#if !primeira}
-			<Resultado tempo={$tempo} erros={$erros} />
+		{#if $tempoVelocidade}
+			<Resultado tempo={$tempoVelocidade} erros={$errosVelocidade} />
 		{/if}
 	</div>
 	<div>
@@ -50,8 +49,8 @@
 			/></svg
 		>
 	</div>
-	<a href="{base}/mediofondo" class="boton">Comezar</a>
-	<a href="{base}/mediofondo/practica"
+	<div class="boton">Proximamente</div>
+	<a href="{base}/mediofondo/practica" style="pointer-events: none"
 		><svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"
 			><g
 				fill="none"
@@ -66,8 +65,8 @@
 		></a
 	>
 	<div>
-		{#if !primeira}
-			<Resultado tempo={$tempo} erros={$erros} />
+		{#if !$tempoMedioFondo}
+			<Resultado tempo={$tempoMedioFondo} erros={$errosMedioFondo} />
 		{/if}
 	</div>
 	<div>
@@ -97,9 +96,6 @@
 		></a
 	>
 	<div>
-		{#if !primeira}
-			<Resultado tempo={$tempo} erros={$erros} />
-		{/if}
 	</div>
 	<div>
 		<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 14 14"
@@ -126,9 +122,6 @@
 		></a
 	>
 	<div>
-		{#if !primeira}
-			<Resultado tempo={$tempo} erros={$erros} />
-		{/if}
 	</div>
 </main>
 

@@ -4,7 +4,7 @@
 	import Operacion from '../Operacion.svelte';
 	import Puntuacion from '../Puntuacion.svelte';
 
-	import { total, erros, tempo } from '$lib/stores.js';
+	import { errosVelocidade, tempoVelocidade } from '$lib/stores.js';
 
 	import { goto } from '$app/navigation';
 	import { base } from '$app/paths';
@@ -20,20 +20,20 @@
 
 	let fin = 0;
 	let solucion = false;
+	let total = 0;
 
-	let operacions = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3];
-	//let operacions = [0, 1, 2, 3];
+	//let operacions = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3];
+	let operacions = [0, 1, 2, 3];
 	shuffleArray(operacions);
 	let indice = 0;
-	erros.set(0);
-	total.set(0);
-	tempo.set(new Date());
+	errosVelocidade.set(0);
+	tempoVelocidade.set(new Date());
 
 	function updateScore(event) {
-		total.update((n) => ++n);
-		erros.update((n) => n + parseInt(event.detail.change));
+		total++;
+		errosVelocidade.update((n) => n + parseInt(event.detail.change));
 		if (indice >= operacions.length - 1) {
-			tempo.set(new Date() - $tempo);
+			tempoVelocidade.set(new Date() - $tempoVelocidade);
 			fin = 1;
 			goto(base + '/');
 		} else {
@@ -68,7 +68,7 @@
 
 <header>
 	<Crono {fin} />
-	<Puntuacion />
+	<Puntuacion {total} erros={$errosVelocidade} />
 </header>
 <main on:pointerdown={touchStart} on:pointerup={touchEnd}>
 	<section>
