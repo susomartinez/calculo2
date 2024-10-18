@@ -36,6 +36,10 @@
 		num1 = num2;
 		num2 = temp;
 	}
+	$: if (max > 9 && operacions[indice] >= 2) { // Para números de 2 cifras e multiplicación/división
+		num1 = Math.floor(Math.random() * 89 + 11);
+		num2 = Math.floor(Math.random() * 7 + 3);
+	}
 	$: if (operacions[indice] === 3) {
 		num1 = num1 * num2;
 	}

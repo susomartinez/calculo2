@@ -4,12 +4,12 @@
 	import Operacion from '$lib/Operacion.svelte';
 	import Puntuacion from '$lib/Puntuacion.svelte';
 
-	import { errosVelocidade, tempoVelocidade } from '$lib/stores.js';
+	import { errosMedioFondo, tempoMedioFondo } from '$lib/stores.js';
 
 	import { goto } from '$app/navigation';
 	import { base } from '$app/paths';
 
-	const max = 9;
+	const max = 99;
 
 	function shuffleArray(array) {
 		for (let i = array.length - 1; i >= 0; i--) {
@@ -26,14 +26,14 @@
 	//let operacions = [0, 1, 2, 3];
 	shuffleArray(operacions);
 	let indice = 0;
-	errosVelocidade.set(0);
-	tempoVelocidade.set(new Date());
+	errosMedioFondo.set(0);
+	tempoMedioFondo.set(new Date());
 
 	function updateScore(event) {
 		total++;
-		errosVelocidade.update((n) => n + parseInt(event.detail.change));
+		errosMedioFondo.update((n) => n + parseInt(event.detail.change));
 		if (indice >= operacions.length - 1) {
-			tempoVelocidade.set(new Date() - $tempoVelocidade);
+			tempoMedioFondo.set(new Date() - $tempoMedioFondo);
 			fin = 1;
 			goto(base + '/');
 		} else {
@@ -68,7 +68,7 @@
 
 <header>
 	<Crono {fin} />
-	<Puntuacion {total} erros={$errosVelocidade} />
+	<Puntuacion {total} erros={$errosMedioFondo} />
 </header>
 <main on:pointerdown={touchStart} on:pointerup={touchEnd}>
 	<section>

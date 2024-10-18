@@ -65,7 +65,7 @@
 		></a
 	>
 	<div>
-		{#if !$tempoMedioFondo}
+		{#if $tempoMedioFondo}
 			<Resultado tempo={$tempoMedioFondo} erros={$errosMedioFondo} />
 		{/if}
 	</div>
