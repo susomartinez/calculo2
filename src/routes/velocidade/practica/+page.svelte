@@ -22,8 +22,8 @@
 	let solucion = false;
 	let total = 0;
 
-	//let operacions = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3];
-	let operacions = [0, 1, 2, 3];
+	let operacions = [0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3];
+	//let operacions = [0, 1, 2, 3];
 	shuffleArray(operacions);
 	let indice = 0;
 	errosVelocidade.set(0);
