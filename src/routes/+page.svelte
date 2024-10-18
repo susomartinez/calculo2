@@ -81,7 +81,7 @@
 		>
 	</div>
 	<div class="boton">Proximamente</div>
-	<a href="{base}/fondo/practica" style="pointer-events: none"
+	<div
 		><svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"
 			><g
 				fill="none"
@@ -93,7 +93,7 @@
 					d="M6 10V8l4-1l2.5 2.5l2.5.5m6 12a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1m15-1l1-11l2-1"
 				/></g
 			></svg
-		></a
+		></div
 	>
 	<div>
 	</div>
@@ -107,7 +107,7 @@
 		>
 	</div>
 	<div class="boton">Proximamente</div>
-	<a href="{base}/tiro/practica" style="pointer-events: none"
+	<div
 		><svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"
 			><g
 				fill="none"
@@ -119,7 +119,7 @@
 					d="M6 10V8l4-1l2.5 2.5l2.5.5m6 12a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1m15-1l1-11l2-1"
 				/></g
 			></svg
-		></a
+		></div
 	>
 	<div>
 	</div>
