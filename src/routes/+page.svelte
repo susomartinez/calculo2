@@ -49,8 +49,8 @@
 			/></svg
 		>
 	</div>
-	<div class="boton">Proximamente</div>
-	<a href="{base}/mediofondo/practica" style="pointer-events: none"
+	<a href="{base}/mediofondo" class="boton">Comezar</a>
+	<a href="{base}/mediofondo/practica"
 		><svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="3rem" viewBox="0 0 24 24"
 			><g
 				fill="none"
